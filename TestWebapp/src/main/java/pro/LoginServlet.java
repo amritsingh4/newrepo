@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response){
 		
 		try{
@@ -19,8 +20,11 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("tryagain.jsp").forward(request, response);
 		}
 		}
-		catch(Exception e){
-			System.out.println(e);
+		catch(IOException e){
+			System.err.println(e);
+		}
+		catch(ServletException e){
+			System.err.println(e);
 		}
 	}
 }
