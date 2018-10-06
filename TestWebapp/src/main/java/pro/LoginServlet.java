@@ -10,11 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response){
+		
+		try{
 		if(request.getParameter("uname").equals("admin") && request.getParameter("psw").equals("pass")){
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 		}else{
 			request.getRequestDispatcher("tryagain.jsp").forward(request, response);
+		}
+		}
+		catch(Exception e){
+			System.out.println(e);
 		}
 	}
 }
