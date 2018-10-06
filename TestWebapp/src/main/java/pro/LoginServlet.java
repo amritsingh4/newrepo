@@ -1,7 +1,7 @@
 package pro;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
+//import java.io.IOException;
+//import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +20,8 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("tryagain.jsp").forward(request, response);
 		}
 		}
-		catch(IOException e){
-			System.err.println(e);
-		}
-		catch(ServletException e){
-			System.err.println(e);
+		catch(Exception ){
+			logger.log(e);
 		}
 	}
 }
